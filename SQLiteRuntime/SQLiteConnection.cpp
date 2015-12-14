@@ -23,7 +23,7 @@ namespace SQLiteRuntime
 		}
 	}
 
-	SQLiteConnection^ SQLiteConnection::Open(Platform::String^ filename)
+	SQLiteConnection^ SQLiteConnection::Open(Platform::String^ filepath)
 	{
 		SQLiteConfig^ config = SQLiteConfig::Default;
 
@@ -32,7 +32,7 @@ namespace SQLiteRuntime
 			config->SetTempDirectory();
 		}
 
-		const wchar_t* filenameData = filename->Data();
+		const wchar_t* filenameData = filepath->Data();
 		sqlite3* pDb = nullptr;
 
 		int result = sqlite3_open16(

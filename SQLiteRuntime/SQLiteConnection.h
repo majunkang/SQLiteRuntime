@@ -16,7 +16,7 @@ namespace SQLiteRuntime
 	public:
 		virtual ~SQLiteConnection();
 
-		static SQLiteConnection^ Open(Platform::String^ file);
+		static SQLiteConnection^ Open(Platform::String^ filepath);
 		SQLiteStatement^ Prepare(Platform::String^ sql);
 
 
