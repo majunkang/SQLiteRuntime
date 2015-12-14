@@ -81,7 +81,7 @@ SQLiteResult SQLiteStatement::Bind(int index, Platform::String ^ value)
 		const char* data = (const char*)value->Data();
 		int length = value->Length() * 2;
 
-		int result = sqlite3_bind_text64(m_stmt, index, data, length, SQLITE_STATIC, SQLITE_UTF16);
+		int result = sqlite3_bind_text64(m_stmt, index, data, length, SQLITE_TRANSIENT, SQLITE_UTF16);
 
 		if (result == SQLITE_OK)
 			return (SQLiteResult)result;
